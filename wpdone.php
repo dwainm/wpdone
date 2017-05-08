@@ -23,3 +23,21 @@ function wpdone_create_post_type() {
     )
   );
 }
+add_action( 'wp_footer', function(){
+        $scripts_dir =  plugins_url( 'wpdone' ) . '/scripts/';
+        wp_enqueue_script( 'wpdoneapp', $scripts_dir . 'app_bundle.js' , false, '0.1', true );
+});
+
+add_filter( 'template_include', function ( $original ) {
+    if ( is_user_logged_in() ) {
+        return   plugin_dir_path ( __FILE__ ) . 'templates/app.php' ;
+   } else {
+        return   plugin_dir_path ( __FILE__ ) . 'templates/login.php' ;
+    }
+});
+
+add_action( 'init', function () {
+    /* Disable WordPress Admin Bar for all users but admins. */
+  show_admin_bar(false);
+});
+
