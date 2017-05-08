@@ -9749,8 +9749,8 @@ var WpDoneTodo = function (_React$Component) {
    _createClass(WpDoneTodo, [{
       key: "render",
       value: function render() {
-         var title = this.prop.title;
-         var id = this.prop.id;
+         var title = this.props.title;
+         var id = this.props.id;
          return _react2.default.createElement(
             "div",
             { className: "todo-item" },
@@ -9774,7 +9774,7 @@ exports.default = WpDoneTodo;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -9796,33 +9796,30 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var WpDoneTodoList = function (_React$Component) {
-    _inherits(WpDoneTodoList, _React$Component);
+  _inherits(WpDoneTodoList, _React$Component);
 
-    function WpDoneTodoList() {
-        _classCallCheck(this, WpDoneTodoList);
+  function WpDoneTodoList() {
+    _classCallCheck(this, WpDoneTodoList);
 
-        return _possibleConstructorReturn(this, (WpDoneTodoList.__proto__ || Object.getPrototypeOf(WpDoneTodoList)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (WpDoneTodoList.__proto__ || Object.getPrototypeOf(WpDoneTodoList)).apply(this, arguments));
+  }
+
+  _createClass(WpDoneTodoList, [{
+    key: 'render',
+    value: function render() {
+      var items = [{ id: 1, title: 'finish x' }, { id: 2, title: 'do y' }];
+      var listElements = items.map(function (item) {
+        return _react2.default.createElement(_WpDoneTodo2.default, { id: item.id, title: item.title });
+      });
+      return _react2.default.createElement(
+        'div',
+        { className: 'todo-list' },
+        listElements
+      );
     }
+  }]);
 
-    _createClass(WpDoneTodoList, [{
-        key: 'render',
-        value: function render() {
-            var items = [{ id: 1, title: 'sample' }, { id: 2, title: 'sample' }];
-            var listElements = [];
-            items.forEach(function (item, index) {
-                listElements.push(_react2.default.createElement(_WpDoneTodo2.default, { id: '1', title: 'sample' }));
-            });
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'todo-list' },
-                'this.props.todoList.forEach( function(item, index)',
-                ');'
-            );
-        }
-    }]);
-
-    return WpDoneTodoList;
+  return WpDoneTodoList;
 }(_react2.default.Component);
 
 exports.default = WpDoneTodoList;
