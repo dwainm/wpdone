@@ -4,12 +4,13 @@
   },
   "dependencies": {
     "html-webpack-plugin": "^2.28.0",
+    "jquery": "^3.2.1",
     "mui": "^1.0.0",
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
-    "requirejs": "^2.3.3",
+    "redux": "^3.6.0",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5"
   },
