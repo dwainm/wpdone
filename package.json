@@ -12,7 +12,8 @@
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "wpapi": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
