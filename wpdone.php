@@ -51,11 +51,7 @@ add_action( 'wp_footer', function(){
 });
 
 add_filter( 'template_include', function ( $original ) {
-    if ( is_user_logged_in() ) {
-        return   plugin_dir_path ( __FILE__ ) . 'templates/app.php' ;
-   } else {
-        return   plugin_dir_path ( __FILE__ ) . 'templates/login.php' ;
-    }
+       return   plugin_dir_path ( __FILE__ ) . 'templates/app.php' ;
 });
 
 add_action( 'init', function () {
