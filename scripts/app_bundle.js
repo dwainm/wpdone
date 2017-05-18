@@ -10124,6 +10124,10 @@ var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _clearCompleted = __webpack_require__(312);
+
+var _reactRedux = __webpack_require__(245);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10142,12 +10146,23 @@ var WpDoneFooter = function (_React$Component) {
   }
 
   _createClass(WpDoneFooter, [{
-    key: "render",
+    key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
-        "div",
-        { id: "footer" },
-        "Footer here "
+        'div',
+        { id: 'footer' },
+        _react2.default.createElement(
+          'a',
+          { onClick: function onClick(e) {
+              var completedItems = _this2.props.state.todoList.filter(function (t) {
+                return t.completed;
+              });
+              _this2.props.dispatch((0, _clearCompleted.clearCompleted)(completedItems));
+            } },
+          'Clear Completed'
+        )
       );
     }
   }]);
@@ -10155,7 +10170,13 @@ var WpDoneFooter = function (_React$Component) {
   return WpDoneFooter;
 }(_react2.default.Component);
 
-exports.default = WpDoneFooter;
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    state: state
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(WpDoneFooter);
 
 /***/ }),
 /* 92 */
@@ -10511,7 +10532,7 @@ var todo = function todo() {
 				text: action.newTitle
 			});
 		case 'DELETE_TODO':
-			// used in a filter, returning true means the item looked will
+			// used in a filter, returning true means the item will
 			// still be part of our list of todos.
 			return todo.id !== action.id;
 		default:
@@ -10535,6 +10556,10 @@ var todoList = function todoList() {
 		case 'DELETE_TODO':
 			return state.filter(function (t) {
 				return todo(t, action);
+			});
+		case 'CLEAR_COMPLETED':
+			return state.filter(function (todo) {
+				return !todo.completed;
 			});
 		default:
 			return state;
@@ -35227,7 +35252,17 @@ var wpDoneMiddleware = function wpDoneMiddleware(store) {
 					return console.log(error);
 				});
 			}
-			//
+			// Handling clearing all completed items
+			if ('CLEAR_COMPLETED' === action.type) {
+				action.items.map(function (item) {
+					(0, _wpDoneRestClient2.default)(wpDoneRestApi.root + '/' + item.id, 'DELETE', {}, function (data) {
+						return dconsole.log(data);
+					}, // do nothing
+					function (error) {
+						return console.log(error);
+					});
+				});
+			}
 		};
 	};
 };
@@ -35371,12 +35406,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var request = function request(url, method, data, successCallback, failCallback) {
 	_jquery2.default.ajax({
 		url: url,
-		method: method,
+		method: 'POST',
 		data: JSON.stringify(data),
 		crossDomain: true,
 		contentType: 'application/json',
 		beforeSend: function beforeSend(xhr) {
 			xhr.setRequestHeader('X-WP-Nonce', wpDoneRestApi.nonce);
+			xhr.setRequestHeader('X-HTTP-Method-Override', method);
 		},
 		success: successCallback,
 		error: failCallback
@@ -35384,6 +35420,23 @@ var request = function request(url, method, data, successCallback, failCallback)
 };
 
 exports.default = request;
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var clearCompleted = exports.clearCompleted = function clearCompleted(completedItems) {
+	return {
+		type: 'CLEAR_COMPLETED',
+		items: completedItems
+	};
+};
 
 /***/ })
 /******/ ]);

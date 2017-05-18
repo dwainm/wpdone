@@ -31,7 +31,7 @@ const todo = (todo = {}, action) => {
 	        text: action.newTitle
 	      })
 		case 'DELETE_TODO':
-	      // used in a filter, returning true means the item looked will
+	      // used in a filter, returning true means the item will
 	      // still be part of our list of todos.
 	      return todo.id !== action.id
 	    default:
@@ -52,6 +52,8 @@ const todoList = (state = [], action) => {
 			return state.map( t => todo( t, action ) )
 		case 'DELETE_TODO':
 			return state.filter( t => todo( t, action ) )
+		case 'CLEAR_COMPLETED':
+			return state.filter( todo => ! todo.completed )
 	    default:
 	      return state
 	  }

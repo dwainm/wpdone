@@ -26,7 +26,7 @@ class WpDoneTodo extends React.Component {
 				checked={checked}
 				onChange={boundedUpdateState}
 		/>
-		<div  ref={ node=> { textDiv = node}} onClick={(el) => {
+		<div  ref={ node=> { textDiv = node } } onClick={(el) => {
 		// this should be a new action that triggers a new
 		// prop called isEditing, but I need to get to other things
 		// now, feel free to add :)

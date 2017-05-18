@@ -49,6 +49,19 @@ next( action );
 			( error ) => console.log( error )
 		);
 	}
-	//
+	// Handling clearing all completed items
+	if ( 'CLEAR_COMPLETED' === action.type ) {
+		action.items.map(
+			item => {
+				request(
+					wpDoneRestApi.root + '/' + item.id,
+					'DELETE',
+					{},
+					( data ) => dconsole.log( data ),// do nothing
+					( error ) => console.log( error )
+				);
+			}
+		);
+	}
 }
 export default wpDoneMiddleware;
