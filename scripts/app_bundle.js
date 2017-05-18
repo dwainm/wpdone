@@ -10216,9 +10216,9 @@ var WpDoneHeader = function (_React$Component) {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        "h3",
         { id: "header" },
-        "header here "
+        "Todo List"
       );
     }
   }]);
@@ -10457,7 +10457,7 @@ var WpDoneAddTodo = function WpDoneAddTodo(_ref) {
 	var input = void 0;
 	return _react2.default.createElement(
 		'div',
-		null,
+		{ className: 'add-todo form-group' },
 		_react2.default.createElement(
 			'form',
 			{ onSubmit: function onSubmit(e) {
@@ -10468,12 +10468,12 @@ var WpDoneAddTodo = function WpDoneAddTodo(_ref) {
 					dispatch((0, _addTodo.addTodo)(input.value));
 					input.value = '';
 				} },
-			_react2.default.createElement('input', { ref: function ref(node) {
+			_react2.default.createElement('input', { className: 'form-input', ref: function ref(node) {
 					input = node;
 				} }),
 			_react2.default.createElement(
 				'button',
-				{ type: 'submit' },
+				{ className: 'btn btn-primary', type: 'submit' },
 				' Add Todo '
 			)
 		)

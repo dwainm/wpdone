@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 let WpDoneAddTodo = ( {dispatch} ) => {
 	let input
 	return (
-		<div><form onSubmit={e => {
+		<div className="add-todo form-group">
+		<form onSubmit={e => {
 			e.preventDefault()
 			if (!input.value.trim()) {
 			 	return
@@ -13,8 +14,8 @@ let WpDoneAddTodo = ( {dispatch} ) => {
 			dispatch(addTodo(input.value))
 			input.value = ''
 		}}>
-			<input ref={node => { input = node }} />
-			<button type="submit"> Add Todo </button>
+			<input className="form-input" ref={node => { input = node }} />
+			<button className="btn btn-primary" type="submit"> Add Todo </button>
 		</form></div>
 	)
 }

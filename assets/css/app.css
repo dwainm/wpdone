@@ -1,0 +1,63 @@
+.add-todo{
+	width:40em;
+	margin:auto;
+	text-align:left;
+}
+
+.add-todo .form-input{
+	width:30em;
+	display:inline;
+}
+.add-todo .btn-primary{
+	display:inline;
+}
+
+
+.todo-list {
+	width: 40em;
+	margin: auto;
+	text-align:left;
+}
+
+.todo-item{
+	font-size:large;
+	margin: 0.5em;
+}
+.todo-item form {
+	display:inline;
+	margin-left: 0.5em;
+}
+.todo-item div {
+	display:inline;
+	margin-left: 0.5em;
+}
+:dd-todo{
+	width:40em;
+	margin:auto;
+	text-align:left;
+}
+
+.add-todo .form-input{
+	width:30em;
+	display:inline;
+}
+.add-todo .btn-primary{
+	display:inline;
+}
+
+
+.todo-list {
+	width: 40em;
+	margin: auto;
+	text-align:left;
+}
+
+.todo-item{
+	font-size:large;
+	margin: 0.5em;
+}
+.todo-item div {
+	display:inline;
+	margin-left: 0.5em;
+}
+

@@ -23,9 +23,10 @@ function wpdone_create_post_type() {
     )
   );
 }
+
 add_action( 'wp_footer', function(){
-        $scripts_dir =  plugins_url( 'wpdone' ) . '/scripts/';
-        wp_enqueue_script( 'wpdoneapp', $scripts_dir . 'app_bundle.js' , false, '0.1', true );
+     $scripts_dir = plugins_url( 'wpdone' ) . '/scripts/';
+     wp_enqueue_script( 'wpdoneapp', $scripts_dir . 'app_bundle.js' , false, '0.1', true );
 	// get all todos in array
 		$todo_query = new WP_Query( array(
 			'post_type' => 'wpdone_todo_item',
