@@ -1,7 +1,6 @@
 <?php
 /**
-yntasticToggleMode
-i* Plugin URI: https://dwain.blog
+* Plugin URI: https://dwain.blog
 * Description: Simple todo list app.
 * Version: 0.1.0
 * Author: Dwain Maralack
