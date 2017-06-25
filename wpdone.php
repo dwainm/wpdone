@@ -1,5 +1,6 @@
 <?php
 /**
+* Plugin Name: WPDone
 * Plugin URI: https://dwain.blog
 * Description: Simple todo list app.
 * Version: 0.1.0
