@@ -6,7 +6,7 @@ To start working on the frontend you simply need to have webpack and yarn instal
 In command line, change to the directory of the plugin and run:
 
 ```
-npm install -g yarnstall -g yarn
+npm install -g yarn
 npm install --save-dev webpack
 ```
 
